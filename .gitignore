@@ -1,0 +1,47 @@
+# Build artifacts
+build/
+dist/
+*.dll
+*.exe
+*.lib
+*.a
+*.so
+*.dylib
+
+# IDE
+.vscode/
+.idea/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Dependencies
+/third_party/
+node_modules/
+__pycache__/
+*.pyc
+
+# Local testing
+fh6-radio/
+media/
+*.swatchbin
+temp/
+tmp/
+
+# Logs
+bridge.log
+*.log
+
+# Temporary files
+*.bak
+*.backup
+*.py_backup
