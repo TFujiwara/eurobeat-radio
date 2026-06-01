@@ -2,7 +2,7 @@
 
 A specialized fork of **FH6 Universal Radio** configured exclusively for **Eurobeat streaming** with a custom Eurobeat logo and simplified dashboard.
 
-![Eurobeat Radio](assets/banner.png)
+![Eurobeat Radio](eurobeat-radio/assets/banner.png)
 
 ## Features
 

@@ -24,8 +24,32 @@ foreach ($path in $possiblePaths) {
 }
 
 if (-not $gameDir) {
-    Write-Host "Could not automatically find FH6. Please enter the path:" -ForegroundColor Yellow
-    $gameDir = Read-Host "FH6 Installation Path"
+    Write-Host "Could not automatically find FH6." -ForegroundColor Yellow
+    Write-Host ""
+    Write-Host "Choose how to locate the game:" -ForegroundColor Cyan
+    Write-Host "1. Manual path entry" -ForegroundColor White
+    Write-Host "2. Browse folder" -ForegroundColor White
+    $choice = Read-Host "Enter your choice (1 or 2)"
+
+    if ($choice -eq "2") {
+        # Open folder browser dialog
+        Add-Type -AssemblyName System.Windows.Forms
+        $folderBrowser = New-Object System.Windows.Forms.FolderBrowserDialog
+        $folderBrowser.Description = "Select your Forza Horizon 6 installation folder"
+        $folderBrowser.RootFolder = [System.Environment+SpecialFolder]::MyComputer
+
+        if ($folderBrowser.ShowDialog() -eq [System.Windows.Forms.DialogResult]::OK) {
+            $gameDir = $folderBrowser.SelectedPath
+        } else {
+            Write-Host "Cancelled." -ForegroundColor Red
+            Read-Host "Press Enter to exit"
+            exit 1
+        }
+    } else {
+        Write-Host "Enter the path to your FH6 installation:" -ForegroundColor Yellow
+        Write-Host "Example: E:\Steam\steamapps\common\ForzaHorizon6" -ForegroundColor Gray
+        $gameDir = Read-Host "FH6 Installation Path"
+    }
 
     if (-not (Test-Path "$gameDir\forzahorizon6.exe")) {
         Write-Host "ERROR: forzahorizon6.exe not found at $gameDir" -ForegroundColor Red
