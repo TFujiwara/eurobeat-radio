@@ -105,6 +105,49 @@ if (Test-Path $uiSource) {
     Write-Host "✓ Copied dashboard UI" -ForegroundColor Green
 }
 
+# Apply custom Eurobeat logo automatically
+Write-Host ""
+Write-Host "Applying Eurobeat logo..." -ForegroundColor Yellow
+
+$logoDir = Join-Path $scriptDir "LogoRadio"
+if (Test-Path $logoDir) {
+    # Check if Python is available
+    $python = $null
+    try {
+        $python = (Get-Command python -ErrorAction Stop).Source
+    } catch {
+        try {
+            $python = (Get-Command python3 -ErrorAction Stop).Source
+        } catch {
+            Write-Host "⚠ Python not found. Logo will not be applied." -ForegroundColor Yellow
+            Write-Host "   Install Python or run LogoRadio scripts manually:" -ForegroundColor Yellow
+            Write-Host "   cd LogoRadio && python3 apply_logos.py" -ForegroundColor Gray
+        }
+    }
+
+    if ($python) {
+        # Run logo patcher for standard resolution
+        Write-Host "Applying standard resolution logo..." -ForegroundColor Cyan
+        & $python "$logoDir\apply_logos.py" 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ Standard logo applied" -ForegroundColor Green
+        } else {
+            Write-Host "⚠ Standard logo application failed" -ForegroundColor Yellow
+        }
+
+        # Run logo patcher for HiRes resolution
+        Write-Host "Applying HiRes resolution logo..." -ForegroundColor Cyan
+        & $python "$logoDir\apply_logos_hires.py" 2>$null
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ HiRes logo applied" -ForegroundColor Green
+        } else {
+            Write-Host "⚠ HiRes logo application failed" -ForegroundColor Yellow
+        }
+    }
+} else {
+    Write-Host "⚠ LogoRadio folder not found. Logo scripts not available." -ForegroundColor Yellow
+}
+
 Write-Host ""
 Write-Host "======================================" -ForegroundColor Green
 Write-Host "  Installation Complete!" -ForegroundColor Green
@@ -116,6 +159,7 @@ Write-Host "2. Tune to the Eurobeat station (R9)" -ForegroundColor White
 Write-Host "3. Open http://localhost:8420 in your browser" -ForegroundColor White
 Write-Host ""
 Write-Host "Dashboard will open when the bridge connects." -ForegroundColor Yellow
+Write-Host "The Eurobeat logo should appear in the radio station display." -ForegroundColor Yellow
 Write-Host ""
 
 Read-Host "Press Enter to exit"
