@@ -6,11 +6,11 @@ A specialized fork of **FH6 Universal Radio** configured exclusively for **Eurob
 
 # 🎮 In-game picture
 
-
+![Eurobeat Radio](eurobeat-radio/assets/ingame.png)
 
 # 🌐 Web dashboard
 
-
+![Eurobeat Radio](eurobeat-radio/assets/webui.png)
 
 ## Features
 
