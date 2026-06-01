@@ -1,6 +1,7 @@
 # Build artifacts
 build/
 dist/
+baseline/
 *.dll
 *.exe
 *.lib
