@@ -70,8 +70,8 @@ void run_bridge(HMODULE self) noexcept {
     log::init(data_dir / "bridge.log");
     log::info("[bridge] FH6 Universal Radio starting; data_dir={}", data_dir.string());
 
-    // Intercept Anthem.zip opens and redirect to custom version with modified logo
-    install_logo_hook(dir);
+    // Logo hook disabled - caused game freezes. Use apply_logos.py scripts instead.
+    // install_logo_hook(dir);
 
     const auto ui_dir = data_dir / "ui";
     if (!verify_ui_credits(ui_dir)) {
