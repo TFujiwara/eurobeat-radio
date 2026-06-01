@@ -18,15 +18,34 @@ A specialized fork of **FH6 Universal Radio** configured exclusively for **Eurob
 - Responsive browser UI for track control and volume adjustment
 - Audio synchronizes with game menus and in-game volume
 
-## Installation
+## Installation (Easiest Way)
 
-1. **Download** the latest `eurobeat-radio.zip` from [Releases](https://github.com/TFujiwara/eurobeat-radio/releases)
-2. **Close** Forza Horizon 6
-3. **Extract** the ZIP into your FH6 install folder (next to `forzahorizon6.exe`). Overwrite when prompted.
-4. **Tune** the in-game radio to find the Eurobeat station (should be R9)
-5. **Open** `http://localhost:8420` in your browser to control playback
+### Automatic Installation
 
-**From another device on the network:** use your PC's local IP, e.g. `http://192.168.1.42:8420`
+1. **Download** `eurobeat-radio.zip` from [Releases](https://github.com/TFujiwara/eurobeat-radio/releases)
+2. **Extract** the ZIP to any folder
+3. **Right-click** `install.ps1` → **Run with PowerShell**
+   - If you get a security error, run: `Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process`
+   - Then run the script again
+4. The script will find your FH6 and install automatically
+5. **Launch** Forza Horizon 6
+
+### Manual Installation (Alternative)
+
+If PowerShell doesn't work:
+
+1. Download `eurobeat-radio.zip` from [Releases](https://github.com/TFujiwara/eurobeat-radio/releases)
+2. Close Forza Horizon 6
+3. Extract the ZIP into your FH6 folder (next to `forzahorizon6.exe`). Overwrite when prompted.
+4. Launch the game
+
+### Using the Dashboard
+
+1. Tune the in-game radio to the **Eurobeat station** (should be **R9**)
+2. Open `http://localhost:8420` in your browser
+3. Control playback: play/pause, skip, volume
+
+**From another device on the network:** use your PC's IP address, e.g. `http://192.168.1.42:8420`
 
 ## Uninstall
 
