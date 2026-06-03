@@ -28,6 +28,9 @@ A specialized fork of **FH6 Universal Radio** configured exclusively for **Eurob
 
 ## Installation (Easiest Way)
 
+### Requirements
+You have to install ffmpeg to make the audio stream work in-game.
+
 ### Automatic Installation
 
 1. **Download** `eurobeat-radio.zip` from [Releases](https://github.com/TFujiwara/eurobeat-radio/releases)
